@@ -1,0 +1,39 @@
+
+   <div>
+              <table  class="table" id="history" *ngFor="let b of bus">
+                  <tbody>
+                      <tr >
+                        <td>{{b.busId}}</td>
+                        <td>{{b.busName}}</td>
+                        <td>{{b.busType}}</td>
+                        <td>{{b.startTime}}</td>
+                        <td>{{b.reachTime}}</td>
+                        <td>{{b.cost}}</td>
+                        <td><a data-toggle="collapse" href=#{{b.busId}} aria-expanded="false" aria-controls="collapseOne">
+                          <button (click)="getDestValue(b.busId,b.routeId)" class="btn btn-success">
+                              Expand
+                            </button>
+                            
+                          </a></td>      
+                        </tr>
+                      </tbody>
+                      <div id={{b.busId}} class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+              
+                              <table  class="table" id="history1" *ngFor="let s of seat">
+                                  <tbody>
+                                    <tr>
+                                      <td><button id='s1' (click)="toggleimage(s.seatNo,s.busId)" ><img  src="assets/images/{{s.seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s.seatNo}}</button></td>
+                                    </tr>
+                                  </tbody>
+                                  
+                                </table>
+              <button (click)="submit()" class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>
+                  </table>
+              
+      
+          
+        </div>
+    

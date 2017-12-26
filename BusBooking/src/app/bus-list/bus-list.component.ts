@@ -69,7 +69,7 @@ selected:number[]=[];
   getDestValue(busId,routeId){
 
     
-    this.http.get('http://localhost:8080/buscontroller/getDestValue'+'/'+this.destination+'/'+routeId)
+    this.http.get('http://localhost:8080/buscontroller/getDestValue'+'/'+this.source+'/'+routeId)
     .subscribe(
 
       (res:Response)=>{

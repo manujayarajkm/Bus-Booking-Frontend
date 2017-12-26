@@ -23,7 +23,7 @@
                               <table  class="table" id="history1" *ngFor="let s of seat">
                                   <tbody>
                                     <tr>
-                                      <td><button id='s1' (click)="toggleimage(s.seatNo,s.busId)" ><img  src="assets/images/{{s.seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s.seatNo}}</button></td>
+                                      <td><button id='s1' (click)="toggleimage(s.seatNo,s.busId)" [disabled]='s.seatStatus=="booked"'><img  src="assets/images/{{s.seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s.seatNo}}</button></td>
                                     </tr>
                                   </tbody>
                                   

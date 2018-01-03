@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'ngx-cookie';
 import{Http,Response} from '@angular/http';
 import{Router} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bus-list',
@@ -20,7 +21,7 @@ export class BusListComponent implements OnInit {
   routeId:number;
 
 selected:number[]=[];
-  constructor(private cookieSevice:CookieService,private http:Http,private router:Router) { }
+  constructor(private cookieSevice:CookieService,private http:Http,private router:Router,private route:ActivatedRoute) { }
 
   getBusses(){
     this.source=this.cookieSevice.get('source');
@@ -135,6 +136,8 @@ selected:number[]=[];
   submit(){
     console.log('seats are '+this.selected);
     alert('selected seats are '+this.selected);
+    const lengt=this.selected.length;
+    this.router.navigate(['passenger',lengt]);
   }
 
   ngOnInit() {

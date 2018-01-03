@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{RouterModule,Routes} from '@angular/router';
+import{RouterModule,Routes,ActivatedRoute} from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap';
 import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -18,10 +18,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LaunchComponent } from './launch/launch.component';
 import { BusListComponent } from './bus-list/bus-list.component';
+import { PassengerComponent } from './passenger/passenger.component';
 
 const AppRoutes:Routes=[
   {path:'',component:LaunchComponent},
-  {path:'searchbus',component:BusListComponent}
+  {path:'searchbus',component:BusListComponent},
+  {path:'passenger/:no',component:PassengerComponent}
+
 ]
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ const AppRoutes:Routes=[
     NavbarComponent,
     FooterComponent,
     LaunchComponent,
-    BusListComponent
+    BusListComponent,
+    PassengerComponent
   ],
   imports: [
     BrowserModule,

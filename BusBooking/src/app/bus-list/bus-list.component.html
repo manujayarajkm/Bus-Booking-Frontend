@@ -2,13 +2,14 @@
    <div>
               <table  class="table" id="history" *ngFor="let b of bus">
                   <tbody>
+                      
                       <tr >
-                        <td>{{b.busId}}</td>
-                        <td>{{b.busName}}</td>
-                        <td>{{b.busType}}</td>
-                        <td>{{b.startTime}}</td>
-                        <td>{{b.reachTime}}</td>
-                        <td>{{b.cost}}</td>
+                        <td><B>Bus Id</B><BR>{{b.busId}}</td>
+                        <td><B>Bus Name</B><BR>{{b.busName}}</td>
+                        <td><B>Bus Type</B><BR>{{b.busType}}</td>
+                        <td><B>Start Time</B><BR>{{b.startTime}}</td>
+                        <td><B>Reach Time</B><BR>{{b.reachTime}}</td>
+                        <td><B><BR><font color="green">{{b.cost|currency:'INR':true}}</font></B></td>
                         <td>
                             <button type="button" class="btn btn-primary" (click)="openModal(template,b.busId,b.routeId,b.busType,b.cost)">View</button>
                           </td>      

@@ -1,41 +1,45 @@
 <carousel>
   <slide>
-    <img src="assets/images/benz.jpg" alt="First slide" style="display: block; width: 100%;">
+    <img src="assets/images/benz.jpg" alt="First slide" style="display: block; width: 1300px;height: 800px;">
     <div class="carousel-caption d-none d-md-block">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3></h3>
+      <p></p>
     </div>
   </slide>
   <slide>
-    <img src="assets/images/scania.jpg" alt="Second slide" style="display: block; width: 100%;">
+    <img src="assets/images/scania.jpg" alt="Second slide" style="display: block; width: 1300px;height: 800px;">
     <div class="carousel-caption d-none d-md-block">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3></h3>
+      <p></p>
     </div>
   </slide>
   <slide>
-    <img src="assets/images/volvo.jpg" alt="Third slide" style="display: block; width: 100%;">
+    <img src="assets/images/volvo.jpg" alt="Third slide" style="display: block; width: 1300px;height: 800px;">
     <div class="carousel-caption d-none d-md-block">
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3></h3>
+      <p></p>
     </div>
   </slide>
 </carousel>
 
 
-
-
+<div class="container-fluid"style="background-color:grey" >
+    <h4 class="text-center"> Travel with Us</h4>
+    <div class="col-md-12">
+      <div class="row">
+          <div class="col-md-4" style="background-color:blueviolet">
+            
   <div class="form-group">
     <label for="source">Source</label>
     <input type="text" class="form-control"   placeholder="Enter Source" [(ngModel)]="source" name="source">
   </div>
   <div class="form-group">
     <label for="destination">Destination</label>
-    <input type="text" class="form-control"  placeholder="destination" [(ngModel)]="destination" name="destination">
+    <input type="text" class="form-control"  placeholder="Destination" [(ngModel)]="destination" name="destination">
   </div>
   <div class="form-group">
     <label for="tickets">No of tickets</label>
-    <select class="form-control"  [(ngModel)]="tickets" name="tickets">
+    <select class="form-control"  placeholder="No of tickets" [(ngModel)]="tickets" name="tickets">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -44,7 +48,24 @@
     </select>
   </div>
   <div>
-      <input type="text" class="form-control" placeholder="Datepicker" bsDatepicker [minDate]="minDate" [maxDate]="maxDate" [(ngModel)]="datepicker" />
+      <label for="traveldate">Travel date</label>
+      <input type="text" class="form-control" placeholder="Travel Date" bsDatepicker [minDate]="minDate" [maxDate]="maxDate" [(ngModel)]="datepicker" />
     </div>
-  
+    <div>
+      <h5></h5>
+    </div>
+  <div>
   <button (click)="searchbus(source,destination,tickets,datepicker)" class="btn btn-primary">Submit</button>
+  </div>
+  <h5></h5>
+  <h5></h5>
+
+</div>
+<div>
+
+</div>
+
+<div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    </div>

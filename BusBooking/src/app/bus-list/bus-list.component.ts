@@ -19,7 +19,7 @@ export class BusListComponent implements OnInit {
   destination:String;
   bus:Bus[];
   len:number;
-  seat:Seat[];
+  s:Seat[];
   routeId:number;
   modalRef: BsModalRef;
   amount:number;
@@ -62,8 +62,8 @@ selected:number[]=[];
     .subscribe(
 
       (res:Response)=>{
-       this.seat=res.json();
-      console.log(this.seat);
+       this.s=res.json();
+      console.log(this.s);
        
       
         //const message=res.text();
@@ -104,7 +104,7 @@ selected:number[]=[];
   toggleimage(seatNo,busid){
 
     console.log('seat '+seatNo,busid);
-    for(let s of this.seat){
+    for(let s of this.s){
       if(s.busId==busid && s.seatNo==seatNo){
         if(s.seatStatus=='available'){
           s.seatStatus='selected';
@@ -132,7 +132,7 @@ selected:number[]=[];
   }
   changeimage(seatNo,busid){
     
-    for(let s of this.seat){
+    for(let s of this.s){
       if(s.busId==busid && s.seatNo==seatNo){
           s.seatStatus='available';
           

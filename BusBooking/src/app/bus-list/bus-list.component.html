@@ -28,11 +28,22 @@
   </div>
   <div class="modal-body">
     Select desired seats
-    <table  class="table" id="seat" *ngFor="let s of seat">
+    <table  class="table" id="seat" >
         <tbody>
           <tr>
-            <td><button (click)="toggleimage(s.seatNo,s.busId)" [disabled]='s.seatStatus=="booked"'><img  src="assets/images/{{s.seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s.seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[0].seatNo,s[0].busId)" [disabled]='s[0].seatStatus=="booked"'><img  src="assets/images/{{s[0].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[0].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[1].seatNo,s[1].busId)" [disabled]='s[1].seatStatus=="booked"'><img  src="assets/images/{{s[1].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[1].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[2].seatNo,s[2].busId)" [disabled]='s[2].seatStatus=="booked"'><img  src="assets/images/{{s[2].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[2].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[3].seatNo,s[3].busId)" [disabled]='s[3].seatStatus=="booked"'><img  src="assets/images/{{s[3].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[3].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[4].seatNo,s[4].busId)" [disabled]='s[4].seatStatus=="booked"'><img  src="assets/images/{{s[4].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[4].seatNo}}</button></td>
           </tr>
+          <tr>
+              <td><button (click)="toggleimage(s[5].seatNo,s[5].busId)" [disabled]='s[5].seatStatus=="booked"'><img  src="assets/images/{{s[5].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[5].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[6].seatNo,s[6].busId)" [disabled]='s[6].seatStatus=="booked"'><img  src="assets/images/{{s[6].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[6].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[7].seatNo,s[7].busId)" [disabled]='s[7].seatStatus=="booked"'><img  src="assets/images/{{s[7].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[7].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[8].seatNo,s[8].busId)" [disabled]='s[8].seatStatus=="booked"'><img  src="assets/images/{{s[8].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[8].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[9].seatNo,s[9].busId)" [disabled]='s[9].seatStatus=="booked"'><img  src="assets/images/{{s[9].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[9].seatNo}}</button></td>
+            </tr>
           
         </tbody>
 

@@ -1,20 +1,20 @@
 <carousel>
   <slide>
-    <img src="assets/images/benz.jpg" alt="First slide" style="display: block; width: 1300px;height: 800px;">
+    <img src="assets/images/benz.jpg" alt="First slide" style="display: block; width: 1200px;height: 500px;">
     <div class="carousel-caption d-none d-md-block">
       <h3></h3>
       <p></p>
     </div>
   </slide>
   <slide>
-    <img src="assets/images/scania.jpg" alt="Second slide" style="display: block; width: 1300px;height: 800px;">
+    <img src="assets/images/scania.jpg" alt="Second slide" style="display: block; width: 1200px;height: 500px;">
     <div class="carousel-caption d-none d-md-block">
       <h3></h3>
       <p></p>
     </div>
   </slide>
   <slide>
-    <img src="assets/images/volvo.jpg" alt="Third slide" style="display: block; width: 1300px;height: 800px;">
+    <img src="assets/images/volvo.jpg" alt="Third slide" style="display: block; width: 1200px;height: 500px;">
     <div class="carousel-caption d-none d-md-block">
       <h3></h3>
       <p></p>
@@ -68,4 +68,60 @@
 <div class="col-md-4">
   </div>
   <div class="col-md-4">
+    <h5>Login</h5>
+      <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control"   placeholder="Username" [(ngModel)]="username" name="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control"  placeholder="Password" [(ngModel)]="password" name="password">
+        </div>
+        <div>
+          <button (click)="login(username,password)" class="btn btn-success">Login</button>
+          <button data-toggle="modal" data-target="#signup"class="btn btn-success">Sign Up</button>
+
+        </div>
     </div>
+
+    <!-- Register Modal -->
+
+    <div id="signup" class="modal fade">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Register Here</h5>
+              </div>
+            <div class="modal-body">
+              <p>Please provide your details</p>
+              <label for="Name">Name:</label>
+              <input type="text" class="form-control" [(ngModel)]="name" name="name" #Name="ngModel">
+              <div class="alert alert-danger" *ngIf="!name && Name.touched">Required</div>
+              <label for="Email">Email:</label>
+              <input type="text" class="form-control" [(ngModel)]="email" name="email" #Email="ngModel">
+              <div class="alert alert-danger" *ngIf="!email && Email.touched">Required</div>
+              <label for="Phone">Phone:</label>
+              <input type="number" class="form-control" [(ngModel)]="phone" name="phone" #Phone="ngModel">
+              <div class="alert alert-danger" *ngIf="!phone && Phone.touched">Required</div>
+              <label for="Username">Username:</label>
+              <input type="text" class="form-control"class="form-control" [(ngModel)]="username" name="username" #userName="ngModel">
+              <a (click)="checkUsername(username)" *ngIf=username><h6 >Check availability</h6></a>
+      
+              <div class="alert alert-danger" *ngIf="!username && userName.touched">Required</div>
+              <label for="Password">Password:</label>
+              <input type="password" class="form-control" [(ngModel)]="password" name="password" #passWord="ngModel">
+              <div class="alert alert-danger" *ngIf="!password && passWord.touched">Required</div>
+              <label for="PasswordConfirm">Password Confirm:</label>
+              <input type="password" class="form-control" [(ngModel)]="passwordconfirm" name="passwordconfirm" #passwordConfirm="ngModel">
+              <div class="alert alert-danger" *ngIf="!passwordconfirm && passwordConfirm.touched">Required</div>
+              <div class="alert alert-danger" *ngIf="!(passwordconfirm==password) && passwordConfirm.touched">Passwords are not matching</div>
+              </div>
+              <div class="alert alert-danger" *ngIf="message">{{message}}</div>
+            <div class="modal-footer">
+              <button (click)="registerUser(name,email,phone,username,password)" class="btn btn-success" [disabled]="!username||!password ||!name||!email||!phone||!passwordconfirm">Register</button>
+              <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      

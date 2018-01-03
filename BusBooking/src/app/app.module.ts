@@ -9,6 +9,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
 import {DatePipe} from '@angular/common';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import{DatePickerModule} from 'angular-io-datepicker';
+import { ModalModule } from 'ngx-bootstrap';
+
 
 
 
@@ -23,7 +25,7 @@ import { PassengerComponent } from './passenger/passenger.component';
 const AppRoutes:Routes=[
   {path:'',component:LaunchComponent},
   {path:'searchbus',component:BusListComponent},
-  {path:'passenger/:no',component:PassengerComponent}
+  {path:'passenger',component:PassengerComponent}
 
 ]
 @NgModule({
@@ -45,7 +47,8 @@ const AppRoutes:Routes=[
     CookieModule.forRoot(),
     BsDatepickerModule.forRoot(),
     NgDatepickerModule,
-    DatePickerModule
+    DatePickerModule,
+    ModalModule.forRoot()
     
   ],
   providers: [DatePipe],

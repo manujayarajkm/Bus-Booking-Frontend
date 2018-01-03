@@ -55,6 +55,8 @@ export class LaunchComponent implements OnInit {
     this.cookieSevice.put('source',source);
     this.cookieSevice.put('destination',destination);
     this.cookieSevice.put('tickets',tickets);
+    this.cookieSevice.put('userid','0000');
+
 //this.traveldate=date.getDate();
 this.dateconvert(date);
 //console.log("travel date is "+this.traveldate+date.getMonth()+1,date.getFullYear());

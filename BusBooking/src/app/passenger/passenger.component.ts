@@ -2,8 +2,6 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import {CookieService} from 'ngx-cookie';
 import{Http,Response} from '@angular/http';
 import{Router} from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -16,11 +14,36 @@ export class PassengerComponent implements OnInit {
   id: number;
   private sub: any;
   no:number[]=[];
+  len:number;
 
-  constructor(private cookieSevice:CookieService,private http:Http,private router:Router,private route:ActivatedRoute,private fb: FormBuilder) { }
+  constructor(private cookieSevice:CookieService,private http:Http,private router:Router) { }
 
   userinfo(name,age,gender,address,idproof){
     console.log(name,age,gender,address,idproof);
+  this.len=+this.cookieSevice.get('arraylen');
+  console.log(this.cookieSevice.get('bookingid'));
+    let passengerObj={
+      "passengerName":name,
+      "passengerGender":gender,
+      "passengerAge":age,
+      "bookingId":+this.cookieSevice.get('bookingid')
+      
+
+    }
+
+    this.http.post('http://localhost:8080/buscontroller/addpassenger',passengerObj)
+    .subscribe(
+
+      (res:Response)=>{
+        const message=res.text();
+        console.log(message);
+         
+      
+        
+
+      }
+    )
+
   }
 
   ngOnInit() {

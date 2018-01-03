@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,TemplateRef } from '@angular/core';
 import {CookieService} from 'ngx-cookie';
 import{Http,Response} from '@angular/http';
 import{Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service'
 
 @Component({
   selector: 'app-bus-list',
@@ -19,10 +21,16 @@ export class BusListComponent implements OnInit {
   len:number;
   seat:Seat[];
   routeId:number;
+  modalRef: BsModalRef;
+  amount:number;
 
 selected:number[]=[];
-  constructor(private cookieSevice:CookieService,private http:Http,private router:Router,private route:ActivatedRoute) { }
+  constructor(private cookieSevice:CookieService,private http:Http,private router:Router,private modalService: BsModalService) { }
 
+  openModal(template: TemplateRef<any>,busId,routeId,busType,cost) {
+    this.modalRef = this.modalService.show(template);
+    this.getDestValue(busId,routeId,busType,cost);
+  }
   getBusses(){
     this.source=this.cookieSevice.get('source');
     this.destination=this.cookieSevice.get('destination');
@@ -67,7 +75,7 @@ selected:number[]=[];
     )
   }
 
-  getDestValue(busId,routeId){
+  getDestValue(busId,routeId,busType,cost){
 
     
     this.http.get('http://localhost:8080/buscontroller/getDestValue'+'/'+this.source+'/'+routeId)
@@ -77,6 +85,12 @@ selected:number[]=[];
         const message=res.text();
         console.log(message);
          
+        this.cookieSevice.put('busId',busId);
+        this.cookieSevice.put('bustype',busType);
+        this.cookieSevice.put('routeid',routeId);
+        this.cookieSevice.put('cost',cost);
+
+        console.log('bus id is '+this.cookieSevice.get('busId'),this.cookieSevice.get('bustype'),this.cookieSevice.get('routeid'),this.cookieSevice.get('cost'));
       this.getSeatLayout(message,busId);
         //const message=res.text();
         //console.log(message);
@@ -137,7 +151,41 @@ selected:number[]=[];
     console.log('seats are '+this.selected);
     alert('selected seats are '+this.selected);
     const lengt=this.selected.length;
-    this.router.navigate(['passenger',lengt]);
+    this.cookieSevice.put('arraylen',lengt.toString());
+  this.amount=+this.cookieSevice.get('cost')*lengt;
+    let seatObj={
+      "routeId":this.cookieSevice.get('routeid'),
+      "userId":this.cookieSevice.get('userid'),
+      "busId":this.cookieSevice.get('busId'),
+      "seats":this.selected,
+      "source":this.cookieSevice.get('source'),
+      "destination":this.cookieSevice.get('destination'),
+      "busType":this.cookieSevice.get('bustype'),
+      "amount":this.amount,
+      "bookingDate":this.cookieSevice.get('date'),
+      "noOfSeats":this.selected.length
+      
+
+    }
+
+    this.http.post('http://localhost:8080/buscontroller/bookseats',seatObj)
+    .subscribe(
+
+      (res:Response)=>{
+        const message=res.text();
+        console.log(message);
+         
+      this.cookieSevice.put('bookingid',message);
+      console.log('booking id cookie'+this.cookieSevice.get('bookingid'));
+        //const message=res.text();
+        //console.log(message);
+        //alert(message);
+        //location.reload();
+
+      }
+    )
+    this.router.navigate(['passenger']);
+    location.reload();
   }
 
   ngOnInit() {

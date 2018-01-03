@@ -9,31 +9,41 @@
                         <td>{{b.startTime}}</td>
                         <td>{{b.reachTime}}</td>
                         <td>{{b.cost}}</td>
-                        <td><a data-toggle="collapse" href=#{{b.busId}} aria-expanded="false" aria-controls="collapseOne">
-                          <button (click)="getDestValue(b.busId,b.routeId)" class="btn btn-success">
-                              Expand
-                            </button>
-                            
-                          </a></td>      
+                        <td>
+                            <button type="button" class="btn btn-primary" (click)="openModal(template,b.busId,b.routeId,b.busType,b.cost)">View</button>
+                          </td>      
                         </tr>
                       </tbody>
-                      <div id={{b.busId}} class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-                          <div class="card-body">
+                      </table>
               
-                              <table  class="table" id="history1" *ngFor="let s of seat">
-                                  <tbody>
-                                    <tr>
-                                      <td><button id='s1' (click)="toggleimage(s.seatNo,s.busId)" [disabled]='s.seatStatus=="booked"'><img  src="assets/images/{{s.seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s.seatNo}}</button></td>
-                                    </tr>
-                                  </tbody>
-                                  
-                                </table>
-              <button (click)="submit()" class="btn btn-primary">Submit</button>
-                          </div>
-                        </div>
-                  </table>
-              
-      
-          
         </div>
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Seat Layout</h4>
     
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Select desired seats
+    <table  class="table" id="seat" *ngFor="let s of seat">
+        <tbody>
+          <tr>
+            <td><button (click)="toggleimage(s.seatNo,s.busId)" [disabled]='s.seatStatus=="booked"'><img  src="assets/images/{{s.seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s.seatNo}}</button></td>
+          </tr>
+          
+        </tbody>
+
+      </table>
+      <button (click)="submit()" class="btn btn-primary">Submit</button>
+
+  </div>
+</ng-template>
+
+       
+           
+              
+
+      

@@ -67,13 +67,14 @@ this.dateconvert(date);
     console.log(dateinitial);
     //console.log("travel date is "+this.traveldate+dateinitial.getMonth()+1,dateinitial.getFullYear());
     this.monthStr=("0" + (dateinitial.getMonth() + 1)).slice(-2);
-    this.dayStr=dateinitial.getDate();
+    //console.log('month '+this.monthStr);
+    this.dayStr=("0" + (dateinitial.getDate())).slice(-2);
     this.yearString=dateinitial.getFullYear();
     //console.log("after conversion "+("0" + (dateinitial.getMonth() + 1)).slice(-2),this.monthStr);
     //console.log("travel date is "+this.dayStr+"-"+this.monthStr+"-"+this.yearString);
     this.dateStr=this.yearString+"-"+this.monthStr+"-"+this.dayStr;
     this.cookieSevice.put('date',this.dateStr);
-console.log(this.dateStr);
+console.log('travel date '+this.dateStr);
     this.router.navigate(['/searchbus']);
 
   }

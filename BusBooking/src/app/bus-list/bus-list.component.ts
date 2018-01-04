@@ -38,13 +38,17 @@ selected:number[]=[];
     this.noSeats=+this.cookieSevice.get('tickets');    
     console.log('inside bus check '+this.source,this.destination,this.dateStr,this.noSeats);
 
-    this.http.get('http://localhost:8080/buscontroller/getAvailableBussess'+'/'+this.source+'/'+this.destination)
+    this.http.get('http://localhost:8080/buscontroller/getAvailableBussess'+'/'+this.source+'/'+this.destination+'/'+this.dateStr)
     .subscribe(
 
       (res:Response)=>{
        this.bus=res.json();
       console.log(this.bus);
        this.len=this.bus.length;
+       if(this.len==0){
+         alert('Invalid Source or Destination');
+         this.router.navigate(['']);
+       }
       console.log(this.len);
       
         //const message=res.text();

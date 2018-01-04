@@ -29,21 +29,50 @@
   </div>
   <div class="modal-body">
     Select desired seats
-    <table  class="table" id="seat" >
+    <table  class="table borderless" id="seat" >
         <tbody>
           <tr>
-            <td><button (click)="toggleimage(s[0].seatNo,s[0].busId)" [disabled]='s[0].seatStatus=="booked"'><img  src="assets/images/{{s[0].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[0].seatNo}}</button></td>
-            <td><button (click)="toggleimage(s[1].seatNo,s[1].busId)" [disabled]='s[1].seatStatus=="booked"'><img  src="assets/images/{{s[1].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[1].seatNo}}</button></td>
-            <td><button (click)="toggleimage(s[2].seatNo,s[2].busId)" [disabled]='s[2].seatStatus=="booked"'><img  src="assets/images/{{s[2].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[2].seatNo}}</button></td>
-            <td><button (click)="toggleimage(s[3].seatNo,s[3].busId)" [disabled]='s[3].seatStatus=="booked"'><img  src="assets/images/{{s[3].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[3].seatNo}}</button></td>
-            <td><button (click)="toggleimage(s[4].seatNo,s[4].busId)" [disabled]='s[4].seatStatus=="booked"'><img  src="assets/images/{{s[4].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[4].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[0].seatNo,s[0].busId)" [disabled]='s[0].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[0].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[0].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[1].seatNo,s[1].busId)" [disabled]='s[1].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[1].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[1].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[2].seatNo,s[2].busId)" [disabled]='s[2].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[2].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[2].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[3].seatNo,s[3].busId)" [disabled]='s[3].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[3].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[3].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[4].seatNo,s[4].busId)" [disabled]='s[4].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[4].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[4].seatNo}}</button></td>
+
           </tr>
           <tr>
-              <td><button (click)="toggleimage(s[5].seatNo,s[5].busId)" [disabled]='s[5].seatStatus=="booked"'><img  src="assets/images/{{s[5].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[5].seatNo}}</button></td>
-              <td><button (click)="toggleimage(s[6].seatNo,s[6].busId)" [disabled]='s[6].seatStatus=="booked"'><img  src="assets/images/{{s[6].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[6].seatNo}}</button></td>
-              <td><button (click)="toggleimage(s[7].seatNo,s[7].busId)" [disabled]='s[7].seatStatus=="booked"'><img  src="assets/images/{{s[7].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[7].seatNo}}</button></td>
-              <td><button (click)="toggleimage(s[8].seatNo,s[8].busId)" [disabled]='s[8].seatStatus=="booked"'><img  src="assets/images/{{s[8].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[8].seatNo}}</button></td>
-              <td><button (click)="toggleimage(s[9].seatNo,s[9].busId)" [disabled]='s[9].seatStatus=="booked"'><img  src="assets/images/{{s[9].seatStatus}}.jpg" class="img-rounded" style="width:50px;height:50px;" />{{s[9].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[5].seatNo,s[5].busId)" [disabled]='s[5].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[5].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[5].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[6].seatNo,s[6].busId)" [disabled]='s[6].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[6].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[6].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[7].seatNo,s[7].busId)" [disabled]='s[7].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[7].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[7].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[8].seatNo,s[8].busId)" [disabled]='s[8].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[8].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[8].seatNo}}</button></td>
+            <td><button (click)="toggleimage(s[9].seatNo,s[9].busId)" [disabled]='s[9].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[9].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[9].seatNo}}</button></td>
+
+          </tr>
+          <tr>
+              <td><button (click)="toggleimage(s[10].seatNo,s[10].busId)" [disabled]='s[10].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[10].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[10].seatNo}}</button></td>
+              </tr>
+              <tr>
+              <td><button (click)="toggleimage(s[11].seatNo,s[11].busId)" [disabled]='s[11].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[11].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[11].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[12].seatNo,s[12].busId)" [disabled]='s[12].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[12].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[12].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[13].seatNo,s[13].busId)" [disabled]='s[13].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[13].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[13].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[14].seatNo,s[14].busId)" [disabled]='s[14].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[14].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[14].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[15].seatNo,s[15].busId)" [disabled]='s[15].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[15].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[15].seatNo}}</button></td>
+
+            </tr>
+            <tr>
+              <td><button (click)="toggleimage(s[16].seatNo,s[16].busId)" [disabled]='s[16].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[16].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[16].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[17].seatNo,s[17].busId)" [disabled]='s[17].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[17].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[17].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[18].seatNo,s[18].busId)" [disabled]='s[18].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[18].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[18].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[19].seatNo,s[19].busId)" [disabled]='s[19].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[19].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[19].seatNo}}</button></td>
+              <td><button (click)="toggleimage(s[20].seatNo,s[20].busId)" [disabled]='s[20].seatStatus=="booked"' class="btn btn-light btn-block"><img  src="assets/images/{{s[20].seatStatus}}.jpg" class="img-rounded" style="width:25px;height:25px;" />{{s[20].seatNo}}</button></td>
+              <td><img  src="assets/images/steering.jpg" class="img-rounded" style="width:25px;height:25px;" /></td>
+
+            </tr>
+            <tr><img  src="assets/images/availabledd.jpg" alt=""/></tr>
+            <tr>
+              <td><img  src="assets/images/available.jpg" class="img-rounded" style="width:25px;height:25px;" />Avail</td>
+              <td><img  src="assets/images/selected.jpg" class="img-rounded" style="width:25px;height:25px;" />Select</td>
+              <td><img  src="assets/images/booked.jpg" class="img-rounded" style="width:25px;height:25px;" />Booked</td>
+
             </tr>
           
         </tbody>

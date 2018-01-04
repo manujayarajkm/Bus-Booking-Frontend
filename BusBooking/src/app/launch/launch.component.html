@@ -71,7 +71,8 @@
 
 <div class="col-md-4">
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4" >
+    <div *ngIf=!checkvar>
     <h5>Login</h5>
       <div class="form-group">
           <label for="username">Username</label>
@@ -84,7 +85,7 @@
         <div>
           <button (click)="login(username,password)" class="btn btn-success" >Login</button>
           <button data-toggle="modal" data-target="#signup"class="btn btn-success">Sign Up</button>
-
+        </div>
         </div>
     </div>
 

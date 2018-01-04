@@ -30,9 +30,8 @@ export class LaunchComponent implements OnInit {
   travelyear=Date;
   minDate: Date;
   maxDate: Date;
-  
-  //maxDate = new Date().setMonth(this.minDate.getMonth()+1);
-
+  user:User[];
+  checkvar:number;
   
 
   constructor(private cookieSevice:CookieService,private http:Http,private router:Router,private datepipe:DatePipe) { 
@@ -46,32 +45,21 @@ export class LaunchComponent implements OnInit {
 
   searchbus(source,destination,tickets,date){
 
-    //console.log("date string"+this.day,this.month+1,this.year);
     console.log(source,destination,tickets,date);
-    //console.log("date "+date._i.date+"-"+(date._i.month+1)+"-"+date._i.year);
-    //this.dateStr=date._i.year+"-"+(date._i.month+1)+"-"+date._i.date;
-    //console.log(this.dateStr);
-    //this.dateconvert(datepickerModel);
     this.cookieSevice.put('source',source);
     this.cookieSevice.put('destination',destination);
     this.cookieSevice.put('tickets',tickets);
     this.cookieSevice.put('userid','0000');
 
-//this.traveldate=date.getDate();
 this.dateconvert(date);
-//console.log("travel date is "+this.traveldate+date.getMonth()+1,date.getFullYear());
-    //this.cookieSevice.put('date',this.dateStr);
-    //this.router.navigate(['/searchbus']);
+
   }
   dateconvert(dateinitial){
     console.log(dateinitial);
-    //console.log("travel date is "+this.traveldate+dateinitial.getMonth()+1,dateinitial.getFullYear());
     this.monthStr=("0" + (dateinitial.getMonth() + 1)).slice(-2);
-    //console.log('month '+this.monthStr);
     this.dayStr=("0" + (dateinitial.getDate())).slice(-2);
     this.yearString=dateinitial.getFullYear();
-    //console.log("after conversion "+("0" + (dateinitial.getMonth() + 1)).slice(-2),this.monthStr);
-    //console.log("travel date is "+this.dayStr+"-"+this.monthStr+"-"+this.yearString);
+    
     this.dateStr=this.yearString+"-"+this.monthStr+"-"+this.dayStr;
     this.cookieSevice.put('date',this.dateStr);
 console.log('travel date '+this.dateStr);
@@ -79,7 +67,47 @@ console.log('travel date '+this.dateStr);
 
   }
 
+  login(username,password){
+
+    console.log(username,password);
+    let userObj={
+      "username":username,
+      "password":password
+    }
+
+    this.http.post('http://localhost:8080/buscontroller/login',userObj)
+    .subscribe(
+
+      (res:Response)=>{
+        const userinfo=res.json();
+        console.log(userinfo);
+        if(userinfo.userid==0){
+          alert('Wrong username/password');
+        }
+        else{
+          this.cookieSevice.put('userid',userinfo.userid.toString());
+          this.checkvar=userinfo.userid;
+          //location.reload();
+        }
+         
+        console.log('userid '+this.cookieSevice.get('userid'));
+
+      }
+    )
+
+  }
+
   ngOnInit() {
   }
 
+}
+
+interface User{
+  userid: number,
+    name: string,
+    email: string,
+    userPhone: number,
+    username: string,
+    gender: string,
+    age: number
 }

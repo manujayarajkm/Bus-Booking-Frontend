@@ -69,7 +69,7 @@
 </div>
 </div>
 <div>
-  <button (click)="userinfo(name,age,gender,address,idproof)" class="btn btn-success">Submit</button>
+  <button (click)="userinfo(name,age,gender,address,idproof)" class="btn btn-success" [disabled]="!name||!age ||!address||!gender||!idproof">Submit</button>
 </div>
 
 

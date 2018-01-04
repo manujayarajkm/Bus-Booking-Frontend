@@ -38,7 +38,8 @@ export class PassengerComponent implements OnInit {
         const message=res.text();
         console.log(message);
          
-      
+      alert("success");
+      this.router.navigate(['']);
         
 
       }
